@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+The app requires at least Ruby 3.0.3, consider using RVM.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone the repository.
+1. Run `bundle install`.
+1. Setup the database running `rails db:create`. You will need PostgreSQL
+   installed on your machine.
+1. Prepare the environment variables `cp .env.example .env`
