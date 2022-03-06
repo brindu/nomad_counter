@@ -33,6 +33,8 @@ gem "redis"
 gem 'slack-ruby-bot-server'
 gem 'slack-ruby-bot-server-events'
 
+gem 'interactor'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

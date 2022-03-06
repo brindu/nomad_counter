@@ -157,6 +157,7 @@ GEM
     importmap-rails (1.0.2)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    interactor (3.1.2)
     io-console (0.5.11)
     io-wait (0.2.1)
     irb (1.4.1)
@@ -333,6 +334,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   importmap-rails
+  interactor
   jbuilder
   pg
   pry
