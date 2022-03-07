@@ -1,0 +1,7 @@
+<h1>Unpublished Slack Posts</h1>
+
+<% if @slack_posts %>
+  <% @slack_posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+<% end %>
