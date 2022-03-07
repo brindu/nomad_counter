@@ -28,7 +28,7 @@ describe 'Slack API Events handler', type: :request do
       end
       let(:new_post) { SlackPost.first }
 
-      it 'saves the post in the database' do
+      it 'saves the message with metadata in the database' do
         post_event!
 
         expect(new_post).to have_attributes({
@@ -37,15 +37,14 @@ describe 'Slack API Events handler', type: :request do
           user_id: 'U032U764VTL',
           channel_id: 'C032DJSD355',
           text: 'yo lol',
-          exposed: false,
         })
         expect(new_post.timestamp.to_s).to eq('2022-03-06 11:31:33 UTC')
       end
 
-      it 'saves the post as non exposed yet' do
+      it 'saves the post as non published yet' do
         post_event!
 
-        expect(new_post.exposed?).to eq(false)
+        expect(new_post.published?).to eq(false)
       end
     end
   end

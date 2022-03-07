@@ -32,7 +32,6 @@ describe SlackEvent::CreateNewPost do
         user_id: 'U032U764VTL',
         channel_id: 'C032DJSD355',
         text: 'yo lol',
-        exposed: false,
       })
     end
 
@@ -42,10 +41,10 @@ describe SlackEvent::CreateNewPost do
       expect(slack_post.timestamp.to_s).to eq(ts.to_s)
     end
 
-    it 'sets the exposed? post attribute to false' do
+    it 'sets the published? attribute to false' do
       subject
 
-      expect(slack_post.exposed).to eq(false)
+      expect(slack_post.published).to eq(false)
     end
   end
 
