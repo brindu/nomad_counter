@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   mount Slack::API => '/'
 
   root "welcome#index"
+
+  resources :slack_posts, only: [] do
+    collection do
+      get :unpublished
+    end
+  end
 end

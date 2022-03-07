@@ -13,7 +13,7 @@ class SlackEvent::CreateNewPost < ApplicationInteractor
       channel_id: data['event']['channel'],
       timestamp: timestamp_to_datetime,
       text: data['event']['text'],
-      exposed: false,
+      published: false,
     }
   end
 
