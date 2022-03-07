@@ -69,4 +69,5 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.hosts << /[a-z0-9-]+\.ngrok\.io/
+  config.web_console.whiny_requests = false
 end
