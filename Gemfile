@@ -33,6 +33,8 @@ gem "redis"
 gem 'slack-ruby-bot-server'
 gem 'slack-ruby-bot-server-events'
 
+gem 'interactor'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -55,7 +57,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'rspec-rails'
+  gem 'rspec-its'
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'webmock'
+  gem 'super_diff'
 end
 
 group :development do
