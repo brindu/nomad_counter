@@ -11,9 +11,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-background flex flex-col h-screen justify-between">
     <%= render partial: 'shared/header' %>
 
-    <%= yield %>
+    <div class="grid grid-cols-6 gap-4 my-8 mb-auto">
+      <%= render partial: 'shared/navigation', class: 'col-span-2' %>
+
+      <main class="col-span-4 m-2">
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= render partial: 'shared/footer' %>
   </body>
 </html>
