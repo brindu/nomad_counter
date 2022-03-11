@@ -1,4 +1,4 @@
-<div class="shadow-md border border-secondary-200 p-2 rounded-md">
+<div class="shadow-md border border-secondary-200 p-2 rounded-md" id="<%= dom_id(slack_post) %>">
   <ul class="flex gap-2 text-sm mb-2 p-1 border-b border-b-secondary-200">
     <li>
       At: <%= slack_post.timestamp %>
@@ -14,8 +14,8 @@
   <p class="my-4"><%= slack_post.text %></p>
 
   <ul class="flex gap-4 justify-end">
-    <button class="btn btn-primary">Create event</button>
-    <button class="btn btn-secondary">Discard</button>
+    <button class="btn btn-primary" id="add_event">Create event</button>
+    <%= button_to 'Discard', discard_slack_post_path(slack_post), method: :post, id: 'discard', class: 'btn btn-secondary' %>
   </ul>
 </div>
 

@@ -4,5 +4,9 @@ Rails.application.routes.draw do
 
   root "slack_posts#index"
 
-  resources :slack_posts, only: [:index]
+  resources :slack_posts, only: [:index] do
+    member do
+      post :discard
+    end
+  end
 end
