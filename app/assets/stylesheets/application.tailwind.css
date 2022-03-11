@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .btn {
+    @apply border-0 rounded-xl px-2 text-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary-400 text-white hover:bg-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-300 hover:bg-secondary-400;
+  }
+
+  .nav-link {
+    @apply hover:text-primary-500 hover:underline
+  }
+}

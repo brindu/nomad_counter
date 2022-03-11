@@ -1,1 +1,21 @@
-<p><%= slack_post.text %></p>
+<div class="shadow-md border border-secondary-200 p-2 rounded-md">
+  <ul class="flex gap-2 text-sm mb-2 p-1 border-b border-b-secondary-200">
+    <li>
+      At: <%= slack_post.timestamp %>
+    </li>
+    <li>
+      Posted by: <%= slack_post.user_id %>
+    </li>
+    <li>
+      In channel: <%= slack_post.channel_id %>
+    </li>
+  </ul>
+
+  <p class="my-4"><%= slack_post.text %></p>
+
+  <ul class="flex gap-4 justify-end">
+    <button class="btn btn-primary">Create event</button>
+    <button class="btn btn-secondary">Discard</button>
+  </ul>
+</div>
+
