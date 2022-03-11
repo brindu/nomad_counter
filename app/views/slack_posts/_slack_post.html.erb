@@ -14,7 +14,7 @@
   <p class="my-4"><%= slack_post.text %></p>
 
   <ul class="flex gap-4 justify-end">
-    <button class="btn btn-primary" id="add_event">Create event</button>
+    <%= button_to 'Create event', new_slack_post_event_path(slack_post), method: :get, id: 'add_event', class: 'btn btn-primary' %>
     <%= button_to 'Discard', discard_slack_post_path(slack_post), method: :post, id: 'discard', class: 'btn btn-secondary' %>
   </ul>
 </div>

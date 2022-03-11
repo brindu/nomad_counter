@@ -37,4 +37,20 @@ describe 'index of remaining slack posts to process', type: :feature do
       expect(page).to have_current_path(slack_posts_path)
     end
   end
+
+  describe 'create event from a slack post' do
+    let(:post) { remaining_posts.shuffle.first }
+
+    subject(:create_event!) do
+      within("#slack_post_#{post.id}") do
+        click_button('add_event')
+      end
+    end
+
+    it 'redirects to the form to create a new event' do
+      create_event!
+
+      expect(page).to have_current_path(new_slack_post_event_path(post))
+    end
+  end
 end
