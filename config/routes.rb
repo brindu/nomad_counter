@@ -2,11 +2,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   mount Slack::API => '/'
 
-  root "slack_posts#unpublished"
+  root "slack_posts#index"
 
-  resources :slack_posts, only: [] do
-    collection do
-      get :unpublished
-    end
-  end
+  resources :slack_posts, only: [:index]
 end

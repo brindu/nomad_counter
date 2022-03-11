@@ -41,10 +41,10 @@ describe 'Slack API Events handler', type: :request do
         expect(new_post.timestamp.to_s).to eq('2022-03-06 11:31:33 UTC')
       end
 
-      it 'saves the post as non published yet' do
+      it 'saves the post as non discarded' do
         post_event!
 
-        expect(new_post.published?).to eq(false)
+        expect(new_post.discarded?).to eq(false)
       end
     end
   end

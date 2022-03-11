@@ -8,11 +8,11 @@ FactoryBot.define do
     text { Faker::Hipster.paragraphs(number: 1).first }
   end
 
-  trait :published do
-    published { true }
+  trait :discarded do
+    discarded { true }
   end
 
-  trait :unpublished do
-    published { false }
+  trait :remaining do
+    discarded { false }
   end
 end

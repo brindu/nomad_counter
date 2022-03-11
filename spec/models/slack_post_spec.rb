@@ -1,18 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe SlackPost, type: :model do
-  let!(:published_posts) { create_list(:slack_post, 2, :published) }
-  let!(:unpublished_posts) { create_list(:slack_post, 3, :unpublished) }
+  let!(:discarded_posts) { create_list(:slack_post, 2, :discarded) }
+  let!(:remaining_posts) { create_list(:slack_post, 3, :remaining) }
 
-  describe '.unpublished' do
-    subject { described_class.unpublished }
+  describe '.discarded' do
+    subject { described_class.discarded }
 
-    it { is_expected.to contain_exactly(*unpublished_posts) }
+    it { is_expected.to contain_exactly(*discarded_posts) }
   end
 
-  describe '.published' do
-    subject { described_class.published }
+  describe '.remaining' do
+    subject { described_class.remaining }
 
-    it { is_expected.to contain_exactly(*published_posts) }
+    it { is_expected.to contain_exactly(*remaining_posts) }
   end
 end

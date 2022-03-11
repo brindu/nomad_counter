@@ -1,4 +1,4 @@
 class SlackPost < ApplicationRecord
-  scope :unpublished, -> { where(published: false) }
-  scope :published, -> { where(published: true) }
+  scope :discarded, -> { where(discarded: true) }
+  scope :remaining, -> { where(discarded: false) }
 end

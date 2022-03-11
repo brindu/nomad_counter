@@ -1,5 +1,5 @@
 class SlackPostsController < ApplicationController
-  def unpublished
-    @slack_posts = SlackPost.unpublished
+  def index
+    @slack_posts = SlackPost.remaining
   end
 end

@@ -41,10 +41,10 @@ describe SlackEvent::CreateNewPost do
       expect(slack_post.timestamp.to_s).to eq(ts.to_s)
     end
 
-    it 'sets the published? attribute to false' do
+    it 'sets the discarded? attribute to false' do
       subject
 
-      expect(slack_post.published).to eq(false)
+      expect(slack_post.discarded?).to eq(false)
     end
   end
 
