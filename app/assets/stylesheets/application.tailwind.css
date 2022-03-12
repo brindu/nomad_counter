@@ -5,7 +5,7 @@
 
 @layer components {
   .btn {
-    @apply border-0 rounded-full px-4 py-1 text-sm uppercase text-bold tracking-wide;
+    @apply border-0 rounded-full px-4 py-1 text-sm uppercase font-bold tracking-wide;
   }
 
   .btn-primary {
@@ -29,7 +29,7 @@
   }
 
   .form-input label {
-    @apply text-sm;
+    @apply text-sm w-40;
   }
 
   .form-input input {
@@ -37,7 +37,7 @@
   }
 
   .form-input input[type="text"] {
-    @apply grow;
+    @apply w-full ml-40;
   }
 
   .form-input select {
