@@ -15,4 +15,10 @@ FactoryBot.define do
   trait :remaining do
     discarded { false }
   end
+
+  trait :with_event do
+    after(:create) do |post|
+      create(:event, slack_post: post)
+    end
+  end
 end

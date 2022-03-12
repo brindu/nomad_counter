@@ -14,5 +14,11 @@ RSpec.describe SlackPost, type: :model do
     subject { described_class.remaining }
 
     it { is_expected.to contain_exactly(*remaining_posts) }
+
+    it 'does not return posts with events' do
+      posts = create_list(:slack_post, 2, :with_event)
+
+      expect(subject).not_to include(*posts)
+    end
   end
 end

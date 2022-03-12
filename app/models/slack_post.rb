@@ -2,5 +2,5 @@ class SlackPost < ApplicationRecord
   has_one :event
 
   scope :discarded, -> { where(discarded: true) }
-  scope :remaining, -> { where(discarded: false) }
+  scope :remaining, -> { includes(:event).where(discarded: false, events: { id: nil }) }
 end
