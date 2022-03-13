@@ -7,9 +7,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(create_params)
+    event = Event.new(create_params)
 
-    redirect_to slack_posts_path
+    if event.save
+      redirect_to slack_posts_path
+    end
   end
 
   private
