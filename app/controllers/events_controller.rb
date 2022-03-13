@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   def new
-    @event = Event.new
-    @event.slack_post_id = params[:slack_post_id]
+    slack_post = SlackPost.find(params[:slack_post_id])
+    redirect_to slack_posts_path unless slack_post
+
+    @event = slack_post.build_event
   end
 
   def create
