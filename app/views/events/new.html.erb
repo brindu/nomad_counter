@@ -1,0 +1,40 @@
+<h1>Create a new event</h1>
+
+<%= form_with model: @event, class: 'form-container', id: dom_id(@event) do |form| %>
+  <div class="form-input">
+    <%= form.label :title, 'Name of the event' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="form-input">
+    <%= form.label :start_time, 'Begining' %>
+    <div class="form-input-datetime-select">
+      <%= form.datetime_select :start_time,
+        selected: Time.zone.now,
+        minute_step: 5,
+        start_year: Time.zone.now.year,
+        end_year: Time.zone.now.year + 1,
+        order: %i[day month year hour minute]
+      %>
+    </div>
+  </div>
+
+  <div class="form-input">
+    <%= form.label :end_time, 'End' %>
+    <div class="form-input-datetime-select">
+      <%= form.datetime_select :end_time,
+        include_blank: true,
+        minute_step: 5,
+        start_year: Time.zone.now.year,
+        end_year: Time.zone.now.year + 1,
+        order: %i[day month year hour minute]
+      %>
+    </div>
+  </div>
+
+  <%= form.hidden_field :slack_post_id %>
+
+  <div class="form-buttons">
+    <%= form.submit 'Create', class: 'btn btn-primary' %>
+  </div>
+<% end %>

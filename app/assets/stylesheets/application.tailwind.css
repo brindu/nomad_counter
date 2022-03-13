@@ -5,7 +5,7 @@
 
 @layer components {
   .btn {
-    @apply border-0 rounded-xl px-2 text-sm;
+    @apply border-0 rounded-full px-4 py-1 text-sm uppercase font-bold tracking-wide;
   }
 
   .btn-primary {
@@ -17,6 +17,38 @@
   }
 
   .nav-link {
-    @apply hover:text-primary-500 hover:underline
+    @apply hover:text-primary-500 hover:underline;
+  }
+
+  .form-container {
+    @apply flex flex-col shadow shadow-gray-300 m-4 p-12;
+  }
+
+  .form-input {
+    @apply flex justify-between items-center h-10 my-3;
+  }
+
+  .form-input label {
+    @apply text-sm w-40;
+  }
+
+  .form-input input {
+    @apply h-8 rounded-md border border-gray-300;
+  }
+
+  .form-input input[type="text"] {
+    @apply w-full ml-40;
+  }
+
+  .form-input select {
+    @apply rounded-md border border-gray-300 w-20 h-8 text-sm p-2;
+  }
+
+  .form-input-datetime-select {
+    @apply flex justify-end;
+  }
+
+  .form-buttons {
+    @apply flex justify-end mt-4;
   }
 }
