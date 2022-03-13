@@ -24,7 +24,12 @@ describe 'create an event from a slack post' do
     end
   end
 
-  let(:start_time) { Faker::Time.forward(days: 5) }
+  let(:round_time) { ->(time, period) { Time.zone.at((time.to_f / period).round * period) } }
+
+  let(:start_time) do
+    ts = Faker::Time.forward(days: 5)
+    round_time.call(ts, 5.minutes)
+  end
 
   context 'with a valid start time' do
     before do
@@ -34,7 +39,7 @@ describe 'create an event from a slack post' do
         select Date::MONTHNAMES[start_time.month], from: 'event_start_time_2i'
         select start_time.day, from: 'event_start_time_3i'
         select start_time.hour, from: 'event_start_time_4i', match: :first
-        select start_time.min, from: 'event_start_time_5i'
+        select start_time.min.to_s.rjust(2, '0'), from: 'event_start_time_5i'
       end
     end
 
@@ -63,10 +68,13 @@ describe 'create an event from a slack post' do
           select Date::MONTHNAMES[end_time.month], from: 'event_end_time_2i'
           select end_time.day, from: 'event_end_time_3i'
           select end_time.hour, from: 'event_end_time_4i'
-          select end_time.min, from: 'event_end_time_5i'
+          select start_time.min.to_s.rjust(2, '0'), from: 'event_end_time_5i'
         end
 
-        let(:end_time) { Faker::Time.forward(days: 5) }
+        let(:end_time) do
+          ts = Faker::Time.forward(days: 5)
+          round_time.call(ts, 5.minutes)
+        end
 
         it 'creates an event' do
           submit!
